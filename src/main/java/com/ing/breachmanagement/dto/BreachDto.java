@@ -1,13 +1,7 @@
-package com.ing.breachmanagement.entity;
+package com.ing.breachmanagement.dto;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -15,20 +9,15 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Table
 @Setter
 @Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class Breach implements Serializable {
-
-	private static final long serialVersionUID = 3705942497400021488L;
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer breachId;
+public class BreachDto implements Serializable{
+	 
+	private static final long serialVersionUID = -548891397680666993L;
+	
 	private String franchise;
 	private String bussinessArea;
 	private String breachCategory;
@@ -45,9 +34,6 @@ public class Breach implements Serializable {
 	private Integer cardHolderAge;
 	private String contactNo;
 	private String reason;
-	private String breachStatus;
-	private String ticketStatus;
-	private Integer ticketNumber;
 	private String riskProfile;
 
 }
