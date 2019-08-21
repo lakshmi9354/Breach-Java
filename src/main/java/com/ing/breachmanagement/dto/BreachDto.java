@@ -21,19 +21,8 @@ public class BreachDto implements Serializable{
 	private String franchise;
 	private String bussinessArea;
 	private String breachCategory;
-	private String repoteeName;
-	private String repoteeEmailId;
-	private String companyName;
 	private LocalDate whenBankAware;
 	private LocalDate whenReported;
 	private String reportingChannel;
-	private String compromiseType;
-	private String issueType;
-	private Long cardNumber;
-	private String cardHolderName;
-	private Integer cardHolderAge;
-	private String contactNo;
-	private String reason;
-	private String riskProfile;
 
 }
