@@ -49,5 +49,6 @@ public class Breach implements Serializable {
 	private String ticketStatus;
 	private Integer ticketNumber;
 	private Integer roleId;
+	private String riskProfile;
 
 }
