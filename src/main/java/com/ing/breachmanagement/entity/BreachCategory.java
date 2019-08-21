@@ -18,5 +18,5 @@ public class BreachCategory {
 	@Id
 	private int id;
 	private String category;
-
+	private String riskprofile;
 }
