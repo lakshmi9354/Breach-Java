@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ing.breachmanagement.dto.RiskProfileDetailsDto;
-import com.ing.breachmanagement.dto.RiskProfileDto;
 import com.ing.breachmanagement.service.RiskProfileService;
 
 @RestController

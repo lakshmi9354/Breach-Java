@@ -18,7 +18,7 @@ public class BreachTicketService {
 		TicketShowDto ticketShow = new TicketShowDto();
 		Breach breachData = breachTicket.findByTicketNumber(ticketId);
 		if (breachData.getBreachCategory() != null) {
-			breachData.setBreachStatus("Opened");
+			breachData.setBreachStatus("open");
 			breachData.setBreachId(breachData.getBreachId());
 			breachTicket.save(breachData);
 			ticketShow.setTicketId(breachData.getBreachId());	
