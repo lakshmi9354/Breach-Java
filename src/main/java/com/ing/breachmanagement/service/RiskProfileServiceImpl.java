@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ing.breachmanagement.dto.RiskProfileDetailsDto;
-import com.ing.breachmanagement.dto.RiskProfileDto;
+
 import com.ing.breachmanagement.entity.Breach;
 import com.ing.breachmanagement.entity.Role;
 import com.ing.breachmanagement.repository.BreachRepository;
@@ -23,23 +23,21 @@ BreachRepository breachRepository;
 RoleRepository roleRepository;
 	@Override
 	public List<RiskProfileDetailsDto> getDetails(Integer roleId) {
-		//List<RiskProfileDto> dto= new ArrayList<>();
+	
 		   List<RiskProfileDetailsDto> riskProfileDetailsDtos = new ArrayList<>();
 		List<Role> role= roleRepository.findByroleId(roleId);
 	
 		String roleType=null;
-		int roleI=0;
+		String mail=null;
 		for(Role role1:role)
 		{
+			mail=role1.getEmail();
 		roleType=role1.getRoleType();
 		}
 		List<Breach> breaches= breachRepository.findByRiskProfile(roleType);
-for(Breach breache:breaches)
-{
-	roleI=breache.getRoleId();
-}
-System.out.println(roleI);
-		if(roleI!=0)
+
+
+		if(mail!=null)
 {
 			
 			for(Breach breach :breaches)
@@ -52,8 +50,7 @@ System.out.println(roleI);
 				riskProfileDetailsDtos.add(details);
 				
 				
-			
-			}
+				}
 			RiskProfileDetailsDto details = new RiskProfileDetailsDto();
 			
 			details.setStatus("success");
