@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.ing.breachmanagement.entity.Breach;
 
 @Repository
-public interface BreachRepository extends JpaRepository<Breach,Integer> {
+public interface BreachRepository extends JpaRepository<Breach, Integer> {
 
 	List<Breach> findByRiskProfile(String roleType);
 
