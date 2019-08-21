@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ing.breachmanagement.dto.BreachCategoryDto;
 import com.ing.breachmanagement.dto.FranchiseeDto;
 import com.ing.breachmanagement.service.FranchiseeDataService;
 
@@ -27,4 +28,11 @@ public class FranchiseeController {
 		return new ResponseEntity<List<FranchiseeDto>>(franchiseService.getFranchiseData(),HttpStatus.OK);
 	}
 	
+	
+
+	@GetMapping("/breachCategory")
+	public ResponseEntity<List<BreachCategoryDto>> getBreachCategoryData()
+	{
+		return new ResponseEntity<List<BreachCategoryDto>>(franchiseService.getBreachCategory(),HttpStatus.OK);
+	}
 }

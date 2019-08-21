@@ -16,7 +16,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 @Entity
-@Table
+@Table(name="breach")
 @Setter
 @Getter
 @ToString
