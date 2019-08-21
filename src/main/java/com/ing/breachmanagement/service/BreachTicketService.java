@@ -15,18 +15,48 @@ public class BreachTicketService {
 	@Autowired
 	BreachTicketRepository breachTicket;
 	
-	public TicketShowDto getReopenTicket(int ticketId)
+	public TicketShowDto getReopenTicket(Integer ticketId)
 	{
-		Breach breach = new Breach();
 		TicketShowDto ticketShow = new TicketShowDto();
-		Optional<Breach> breachData = breachTicket.findByticketNumber(ticketId);
-		if (breachData.isPresent()) {
-			breach.setBreachStatus("Opened");
-			breach.setBreachId(breachData.get().getBreachId());
-			breachTicket.save(breach);
-			ticketShow.setTicketId(breachData.get().getBreachId());			
+		Breach breachData = breachTicket.findByTicketNumber(ticketId);
+		if (breachData.getBreachCategory() != null) {
+			breachData.setBreachStatus("Opened");
+			breachData.setBreachId(breachData.getBreachId());
+			breachTicket.save(breachData);
+			ticketShow.setTicketId(breachData.getBreachId());	
+			ticketShow.setTicketStatus("breach opened successfully");
+			ticketShow.setTicketId(breachData.getTicketNumber());
+			return ticketShow;
+		}else
+		{
+			ticketShow.setTicketStatus("breach not opened successfully");
+			ticketShow.setTicketId(breachData.getTicketNumber());
+			return ticketShow;
 		}
-		return ticketShow;
+		
+	}
+
+	public TicketShowDto breachAction(Integer ticketNumber) {
+		
+		
+		TicketShowDto ticketShow = new TicketShowDto();
+		System.out.println("ticketNumber "+ticketNumber);
+		
+		Breach breachData = breachTicket.findByTicketNumber(ticketNumber);
+		System.out.println("breachTicket "+breachData.getTicketStatus());
+		if (breachData.getBreachId()!=0) {
+			breachData.setBreachId(breachData.getBreachId());
+			breachData.setBreachStatus("Closed");
+			breachTicket.save(breachData);
+			ticketShow.setTicketStatus("breach closed successfully");
+			ticketShow.setTicketId(breachData.getTicketNumber());
+			return ticketShow;
+		}
+		else {
+			ticketShow.setTicketStatus("breach not closed successfully");
+			ticketShow.setTicketId(breachData.getTicketNumber());
+			return ticketShow;
+		}
 	}
 	
 }

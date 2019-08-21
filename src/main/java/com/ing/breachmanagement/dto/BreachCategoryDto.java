@@ -5,10 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class TicketShowDto {
-	
-	private int ticketId;
-	
-	private String ticketStatus;
+public class BreachCategoryDto {
 
+	private int value;
+	private String name;
+	
 }
